@@ -34,7 +34,9 @@ export function stringsToIntegers(numbers: string[]): number[] {
  */
 // Remember, you can write functions as lambdas too! They work exactly the same.
 export const removeDollars = (amounts: string[]): number[] => {
-    return [];
+    let dollars = amounts.map((amount: string): number => (amount.startsWith('$')) ? parseInt(amount.slice(1)): parseInt(amount)|| 0);
+    console.log(dollars); 
+    return dollars;
 };
 
 /**
@@ -43,7 +45,8 @@ export const removeDollars = (amounts: string[]): number[] => {
  * in question marks ("?").
  */
 export const shoutIfExclaiming = (messages: string[]): string[] => {
-    return [];
+    let shout = messages.map((message: string): string => (message.endsWith("!")) ? message.toUpperCase(): message).filter((message: string): boolean => (!message.endsWith("?")))
+    return shout;
 };
 
 /**
@@ -51,7 +54,9 @@ export const shoutIfExclaiming = (messages: string[]): string[] => {
  * 4 letters long.
  */
 export function countShortWords(words: string[]): number {
-    return 0;
+    let lenwords = words.filter((word: string): boolean => (word.length < 4))
+    console.log(lenwords)
+    return lenwords.length;
 }
 
 /**
@@ -60,7 +65,8 @@ export function countShortWords(words: string[]): number {
  * then return true.
  */
 export function allRGB(colors: string[]): boolean {
-    return false;
+    let rgb = colors.every((color: string): boolean => color === "red" || color === "green" || color === "blue")
+    return rgb;
 }
 
 /**
@@ -71,7 +77,8 @@ export function allRGB(colors: string[]): boolean {
  * And the array [] would become "0=0".
  */
 export function makeMath(addends: number[]): string {
-    return "";
+    let sum = addends.reduce((currentTotal: number, num: number) => currentTotal+num, 0 ); 
+    return (sum.toString() + "=" + (addends.length > 0 ? addends.join("+") : "0"));
 }
 
 /**
