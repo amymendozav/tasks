@@ -5,7 +5,8 @@
  * the number twice.
  */
 export function bookEndList(numbers: number[]): number[] {
-    return numbers;
+    let newArr = numbers.length > 1 ?  [numbers[0], numbers[numbers.length - 1]] : (numbers.length === 1) ? [numbers[0] ,numbers[0]] : []
+    return newArr;
 }
 
 /**
@@ -34,8 +35,8 @@ export function stringsToIntegers(numbers: string[]): number[] {
  */
 // Remember, you can write functions as lambdas too! They work exactly the same.
 export const removeDollars = (amounts: string[]): number[] => {
-    let dollars = amounts.map((amount: string): number => (amount.startsWith('$')) ? parseInt(amount.slice(1)): parseInt(amount)|| 0);
-    console.log(dollars); 
+    let dollars = amounts.map((amount: string): number => (parseInt(amount.replace(/\$/g, "")) ? parseInt(amount.replace(/\$/g, "")) : 0)); 
+    console.log(dollars)
     return dollars;
 };
 
@@ -55,7 +56,6 @@ export const shoutIfExclaiming = (messages: string[]): string[] => {
  */
 export function countShortWords(words: string[]): number {
     let lenwords = words.filter((word: string): boolean => (word.length < 4))
-    console.log(lenwords)
     return lenwords.length;
 }
 
