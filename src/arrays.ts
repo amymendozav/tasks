@@ -36,7 +36,6 @@ export function stringsToIntegers(numbers: string[]): number[] {
 // Remember, you can write functions as lambdas too! They work exactly the same.
 export const removeDollars = (amounts: string[]): number[] => {
     let dollars = amounts.map((amount: string): number => (parseInt(amount.replace(/\$/g, "")) ? parseInt(amount.replace(/\$/g, "")) : 0)); 
-    console.log(dollars)
     return dollars;
 };
 
@@ -91,5 +90,10 @@ export function makeMath(addends: number[]): string {
  * And the array [1, 9, 7] would become [1, 9, 7, 17]
  */
 export function injectPositive(values: number[]): number[] {
-    return [];
+    let indx = values.findIndex((value: number): boolean => value < 0); 
+    let sum = (indx === -1) ? values.reduce((currentTotal: number, num: number) => currentTotal+num, 0): values.slice(0, indx).reduce((currentTotal: number, num: number) => { return num > 0  ? currentTotal + num : currentTotal + 0; }, 0);
+    let newArr = [...values]; 
+    newArr.splice(indx + 1, 0, sum);
+    let final = (indx === -1) ? [...values, sum]: newArr; 
+    return final;
 }
