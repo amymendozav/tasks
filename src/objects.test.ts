@@ -85,7 +85,7 @@ describe("Testing the object functions", () => {
 
     ///////////////////////////////////
     // isValid
-    test("(3 pts) Testing the isValid function", () => {
+    test("Testing the isValid function", () => {
         expect(isValid(ADDITION_QUESTION, "4")).toEqual(true);
         expect(isValid(ADDITION_QUESTION, "2")).toEqual(true);
         expect(isValid(ADDITION_QUESTION, " 4\n")).toEqual(true);
@@ -108,7 +108,7 @@ describe("Testing the object functions", () => {
 
     ///////////////////////////////////
     // toShortForm
-    test("(3 pts) Testing the toShortForm function", () => {
+    test("Testing the toShortForm function", () => {
         expect(toShortForm(ADDITION_QUESTION)).toEqual("1: Addition");
         expect(toShortForm(LETTER_QUESTION)).toEqual("2: Letters");
         expect(toShortForm(COLOR_QUESTION)).toEqual("5: Colors");
@@ -118,7 +118,7 @@ describe("Testing the object functions", () => {
 
     ///////////////////////////////////
     // toMarkdown
-    test("(3 pts) Testing the toMarkdown function", () => {
+    test("Testing the toMarkdown function", () => {
         expect(toMarkdown(ADDITION_QUESTION)).toEqual(`# Addition
 What is 2+2?`);
         expect(toMarkdown(LETTER_QUESTION)).toEqual(`# Letters
@@ -145,9 +145,9 @@ What shape can you make with one line?
 
     ///////////////////////////////////
     // renameQuestion
-    test("(3 pts) Testing the renameQuestion function", () => {
+    test("Testing the renameQuestion function", () => {
         expect(
-            renameQuestion(ADDITION_QUESTION, "My Addition Question"),
+            renameQuestion(ADDITION_QUESTION, "My Addition Question")
         ).toEqual({
             id: 1,
             name: "My Addition Question",
@@ -209,7 +209,7 @@ What shape can you make with one line?
 
     ///////////////////////////////////
     // duplicateQuestion
-    test("(3 pts) Testing the duplicateQuestion function", () => {
+    test("Testing the duplicateQuestion function", () => {
         expect(duplicateQuestion(9, ADDITION_QUESTION)).toEqual({
             id: 9,
             name: "Copy of Addition",
@@ -234,7 +234,7 @@ What shape can you make with one line?
 
     ///////////////////////////////////
     // addOption
-    test("(3 pts) Testing the addOption function", () => {
+    test("Testing the addOption function", () => {
         expect(addOption(SHAPE_QUESTION, "heptagon")).toEqual({
             id: 9,
             name: "Shapes",
@@ -266,7 +266,7 @@ What shape can you make with one line?
                 "More Points Addition",
                 ADDITION_QUESTION,
                 SHAPE_QUESTION,
-            ),
+            )
         ).toEqual({
             id: 192,
             name: "More Points Addition",
