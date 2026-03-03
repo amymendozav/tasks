@@ -43,7 +43,7 @@ export function isValid(question: Question, answer: string): boolean {
  * name "My First Question" would become "9: My First Q".
  */
 export function toShortForm(question: Question): string {
-    return `${question.id}:${question.name.slice(0,10)}`; 
+    return `${question.id}: ${question.name.slice(0,10)}`; 
 }
 
 /**
@@ -64,10 +64,8 @@ export function toShortForm(question: Question): string {
  * Check the unit tests for more examples of what this looks like!
  */
 export function toMarkdown(question: Question): string {
-    if (question.type === "short_answer_question") {
-        return `# ${question.name}\n${question.body}`; 
-    }
-    return `${question.name}\n${question.body}\n${question.options[0]}\n${question.options[1]}\n${question.options[2]}`;
+      return question.type === "short_answer_question" ?
+            `# ${question.name}\n${question.body}` : `# ${question.name}\n${question.body}\n${question.options.join('\n').replace(/^/gm, "- ")}`
 }
 
 /**
