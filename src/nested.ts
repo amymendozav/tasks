@@ -167,7 +167,8 @@ export function addNewQuestion(
     name: string,
     type: QuestionType,
 ): Question[] {
-    return [...questions, makeBlankQuestion(id, name, type)];
+    let blankQuestion = makeBlankQuestion(id,name,type); 
+    return [...questions, blankQuestion];
 }
 
 /***
@@ -235,7 +236,7 @@ export function editOption(
             : {...question, options: question.options.map((option: string, index: number): string => index === targetOptionIndex ? option = newOption: option ) }) 
             : {...question} )
     return found;
-}
+}8
 
 /***
  * Consumes an array of questions, and produces a new array based on the original array.
