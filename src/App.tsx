@@ -29,20 +29,6 @@ function App(): React.JSX.Element {
             <CycleHoliday></CycleHoliday> 
             <hr />
         </div>
-
-        // <div className="App">
-        //     <header className="App-header">
-        //         UD CISC275 with React Hooks and TypeScript - Amy Mendoza
-        //     </header>
-
-        //     <p>
-        //         Edit <code>src/App.tsx</code> and save. This page will
-        //         automatically reload.
-        //     </p>
-        //     <p>
-        //         Hello World!
-        //     </p>
-        // </div>
     );
 }
 
